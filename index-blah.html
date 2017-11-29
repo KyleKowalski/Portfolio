@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <title>Kyle's Portfolio</title>
+
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> -->
+              
+
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+        <link rel="stylesheet" type="text/css" href="assets\css\style.css">
+
+        <!-- <script type="text/javascript" src="assets/js/clickyLogic.js"></script> -->
+    </head>
+    <body>
+
+
+        <container class="panel col-md-3 col-xs-10">
+            <row>
+                <div class="col-md-12 text-center">
+                <h4 class="panel-heading teal-text">Connect With Me</h4>
+                <hr id="connectHr">
+                </div>
+            </row>
+            
+            <row>
+                <div class="empty col-xs-3"></div>
+                <div class="col-xs-2">
+                <a class="panel-body" href="https://github.com/KyleKowalski" target="_blank">
+                    <img class="image-responsive center-block" src="assets\images\github.png" alt="github-picture" height="35px" width="35px">
+                </a>
+                </div>
+                <div class="col-xs-2">
+                <a class="panel-body" href="https://www.linkedin.com/in/kylekowalski/" target="_blank">
+                    <img class="image-responsive center-block" src="assets\images\linkedin.png" alt="linkedin-picture" height="35px" width="35px">
+                </a>
+                </div>
+                <div class="col-xs-2">
+                <a class="panel-body" href="https://stackoverflow.com/users/8321376/kyle-kowalski" target="_blank">
+                    <img class="image-responsive center-block" src="assets\images\stackoverflow.png" alt="stackoverflow-picture" height="35px" width="35px">
+                </a>
+                </div>
+                <div class="empty col-xs-3"></div>
+            </row>
+        </container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <container class="text-center">
+            <row>
+                <div id="title" class="">
+                    <h1>Bar Style Trivia!</h1>
+                    <h3>Shared Screen Edition</h3>
+                </div>
+            </row>
+        </container>
+        <container id="setupScreen" class="absolute text-center">
+            <row><h1>Welcome to share-screen trivia!</h1></row>
+            <row><h5>The basics:  This is a multi-round trivia for one to many teams.</h5></row>
+            <row><h5>It shares a single screen... for now. (future updates, etc, as time permits)</h5></row>
+            <row><h5>Please create your team(s) - many people on a single team?  Sure!</h5></row>
+            <row><h5>Then select the type of questions to be asked (checkboxes below).</h5></row>
+            <row><h5>There are a few other variables to choose (number of questions, timer length, etc)</h5></row>
+            
+            <row><h5>Fill in the blank will be graded by the next team (or yourself if 1 team - honor system, please?)</h5></row>
+            <row><h5>When you're ready - click 'Go!'</h5></row>
+            <hr class="clear-both">
+            <form id="setupForm" class="form-inline">
+                <row><h4>How many teams do you want to create?</h4></row>
+                <row><input id="numberOfTeams" autocomplete="off" class="form-control" placeholder="Enter an integer: no entry will start the game with 1 team"></row>
+                <hr>
+                <row><h4>Game Variables:</h4></row>
+                <row><h5 class="col-xs-6 col-sm-6 col-md-6 col-lg-6">Number of questions (per team):</h5></row>
+                <row><input id="numberOfQuestionsId" autocomplete="off" class="col-xs-4 col-sm-4 col-md-4 col-lg-4" value="5"></row>
+                
+                <row><h5 class="clear-both col-xs-6 col-sm-6 col-md-6 col-lg-6">Time limit for each question (seconds):</h5></row>
+                <row><input id="lengthOfRoundId" autocomplete="off" class="col-xs-4 col-sm-4 col-md-4 col-lg-4" value="30"></row>
+                <hr class="clear-both">
+                <row><h4>Types Of Questions</h4></row>
+                <div id="checkboxArrayForQuestionTypesHere"></div>
+                <hr>
+                <row>
+                    
+                    <button id="goButton" type="submit" class="form-control">Go!</button>
+                    
+                </row>
+            </form>
+        </container>
+        <container id="teamCreationScreen" class="hidden absoluteForTeams text-center">
+            <form id="teamCreationForm" class="form-inline">
+                <row><h1 id="creatingThisTeam"></h1></row>
+                <row><h1>Team Name:</h1></row>
+                <row><input id="teamName" autocomplete="off" placeholder="Enter your teams name here:" class="form-control"></row>
+                <hr>
+                <row><h1>Members:</h1></row>
+                <div id="teamMembersDiv"></div>
+                <hr>
+                <row><h3 id="clickToAddTeamMember">Click Here to add another team member!</h3></row>
+                <hr>
+                <row>
+                    <button id="teamCreationButton" type="button" class="form-control">Go!</button>			
+                </row>
+            </form>
+        </container>
+        <container id="gradingScreen" class="hidden absolute text-center">
+            <row><h1>Previous Question Requires Grading!</h1></row>
+            <row><h3>Previous Question:</h3></row>
+            <row><h4 id="previousQuestionHere"></h4 ></row>
+            <row><h3>Correct Answer:</h3></row>
+            <row><h4 id="previousAnswerHere"></h4></row>
+            <row><h3>Proposed Answer:</h3></row>
+            <row><h4 id="answerToBeGradedHere"></h4></row>
+            <hr>
+            <row><button id="correctAnswerButton" class="form-control">Correct!</button></row>
+            <row><button id="wrongAnswerButton" class="form-control">Nope!  Sorry, incorrect</button></row>
+        </container>
+        <container id="mainPage" class="text-center">
+                <row>
+                    <h1 id="displayRoundHere" class="displayRoundHere col-xs-6 col-sm-6 col-md-6 col-lg-6">Let's play Trivia!</h1>
+                    <h1 id="displayTimeHere" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">Time Remaining:</h1>
+                </row>
+                <row>
+                    <h2 class="col-xs-12 col-sm-12 col-md-12 col-lg-12">Question: </h2>
+                    <div id="question" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+                </row>
+                <row>
+                    <h3 class="col-xs-12 col-sm-12 col-md-12 col-lg-12">Possible Answer(s):</h3>
+                </row>
+                <hr class="clear-both">
+                <row>
+                        <form id="fitb-form">
+                        <row>
+                            <div id="fitb" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            </div>
+                        </row>
+                        <row class="clear-both">
+                            <div class="empty fitb-submit col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+                            <div class="fitb-submit col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                <button type="submit" class="form-control">Submit Answers</button>
+                            </div>
+                            <div class="empty fitb-submit col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+                        </row>
+                        </form>
+                </row>
+                <row class="mc" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <h2 class="mc-answer" id="mcAnswer1"></h2>
+                </row>
+                <row class="mc" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <h2 class="mc-answer" id="mcAnswer2"></h2>
+                </row>
+                <row class="mc" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <h2 class="mc-answer" id="mcAnswer3"></h2>
+                </row>
+                <row class="mc" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
+                        <h2 class="mc-answer" id="mcAnswer4"></h2>
+                </row>
+        </container>
+        <div id="scoreScreen" class="hidden absolute text-center">
+            <row><h1>Current Score:</h1></row>
+            <row><h3>(Click to continue)</h3></row>
+            <row><div id="currentScoreHere"></div></row>
+            <row><h3 class="displayRoundHere"></h3></row>
+            <row><h1 id="thisTeamsNameHere">Team (some team here) Turn!</h1></row>
+            <row><h5 id="thisTeamsMembersHere"></h5></row>
+            <row><h3 id="numberCorrectHere"></h3></row>
+            <row><h3 id="numberWrongHere"></h3></row>
+            <row><h3 id="numberNoAnswerHere"></h3></row>
+            <button type="button" id="newGameSamePeople" class="gameOver hidden form-control">Click Here To Start A New Game With The Same Questions/Teams</button>
+            <button type="button" id="newGameDifferentPeople" class="gameOver hidden form-control">Click Here To Start Entirely Over (new questions/teams)</button>
+        </div> -->
+    </body>
+</html>
